@@ -59,4 +59,4 @@ View current tickets open.
     (04) - Type "cd backend" and enter the command "node api.js"
     (05) - Open a new terminal at the file directory
     (06) - Enter the command "yarn start" and visit the URL specified
-    (07) - Enter "yasee" for the username and "test" as the password. This is an admin account and provides all functionalities of the site.
+    (07) - Enter "yaseen" for the username and "test" as the password. This is an admin account and provides all functionalities of the site.
