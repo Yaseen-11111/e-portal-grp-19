@@ -81,7 +81,49 @@ const blockUserEndpoint = (app) => {
   });
 };
 
+const getUserAdminEndpoint = (app) => {
+  app.post("/api/getuseradmin", async (req, res) => {
+    const { token } = req.body;
 
+    //validate token
+    if (!Registry.getInstance().getUsers().has(token)) {
+      return res.status(401).send({
+        status: "error",
+        message: "Not Authorized"
+      });
+    }
+
+    const client = new MongoClient(mongo.url);
+    try {
+      await client.connect();
+      const db = client.db(mongo.dbName);
+      const collection = db.collection("users");
+      let users;
+      users = await collection.find({
+      }).project({'logInfo.username': 1, 'logInfo.block': 1}).toArray()
+
+      if (users) {
+        res.send({
+          status: "success",
+          users: users
+        });
+      } else {
+        res.send({
+          status: "error",
+          message: "no users found",
+          users: null
+
+        })
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      await client.close();
+    }
+
+
+  })
+}
 
 const setLeaveEndpoint = (app) => {
   app.post("/api/leave/request/decide", async (req, res) => {
@@ -632,7 +674,6 @@ const getRemainingLeaveEndpoint = (app) => {
         status: "error",
         message: "Not Authorized"
       });
-      return;
     }
 
     const client = new MongoClient(mongo.url);
@@ -762,7 +803,6 @@ const editProfileEndpoint = (app) => {
         status: "error",
         message: "Not Authorized"
       });
-      return;
     }
 
     const client = new MongoClient(mongo.url);
@@ -810,7 +850,6 @@ const editableEndpoint = (app) => {
         status: "error",
         message: "Not Authorized"
       });
-      return;
     }
 
     const client = new MongoClient(mongo.url);
@@ -1105,6 +1144,7 @@ async function run() {
   getRemainingLeaveEndpoint(app);
   sendNotificationEndpoint(app);
   blockUserEndpoint(app);
+  getUserAdminEndpoint(app)
 
   app.listen(5000);
 }

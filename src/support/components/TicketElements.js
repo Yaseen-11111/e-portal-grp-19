@@ -8,7 +8,7 @@ export function getTicketElement(tickets) {
                     <td className="ticket-type">
                         {tickets[i].type}
                     </td>
-                    <td className="ticket-title">
+                    <td className="ticket-subject">
                         {tickets[i].subject}
                     </td>
                     <td className="contact-email">
@@ -31,11 +31,11 @@ export function getTicketElement(tickets) {
         }
     } else {
         htmlElements.push(
-            <div className="ticket-container" key={0}>
-                <div className="ticket-title">
+            <tr className="ticket-container" key={0}>
+                <td className="ticket-title">
                     <h5>No tickets found</h5>
-                </div>
-            </div>
+                </td>
+            </tr>
         );
     }
     return htmlElements;

@@ -14,7 +14,7 @@ function Login({ setToken, setLoggedIn }) {
 
   const [user, setUser] = useState();
   const [pass, setPass] = useState();
-  const [remember, setRemember] = useState(true);
+  const [setRemember] = useState(true);
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -76,7 +76,7 @@ function Login({ setToken, setLoggedIn }) {
           <input onChange={(e) =>setRemember(e.target.value)} type="checkbox" defaultChecked="checked"/> Remember me
         </label>
         <br/>
-        <a href="#" style={{color: "black", textDecoration: "underline"}}>Forgot password?</a>
+        {/*<a href="#/" style={{color: "black", textDecoration: "underline"}}>Forgot password?</a>*/}
       </form>
     </div>
   )

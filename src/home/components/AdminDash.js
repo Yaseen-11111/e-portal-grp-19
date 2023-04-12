@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import "../styles/home.css"
 
 function AdminDash() {
@@ -15,6 +15,16 @@ function AdminDash() {
   const [lastName, setLastName] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
   const [role, setRole] = useState("MANAGER");
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    getUsersFromDB(users, ).then((body) => {
+      if (body.users) {
+        setUsers(body.users);
+      }
+    });
+  }, []);
 
 
   const signupUser = async (e) => {
@@ -72,8 +82,43 @@ function AdminDash() {
     alert(body.message);
   }
 
-  const getUsers = async () => {
-    const response = await fetch('http://localhost:5000/api/getuseradmin')
+  const getUsersFromDB = async () => {
+    const response = await fetch('http://localhost:5000/api/getuseradmin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        token: localStorage.getItem("token")
+      })
+    });
+    return await response.json()
+  };
+
+  const htmlElements = [];
+
+  if (users.length > 0) {
+    for (let i = 0; i < users.length; i++) {
+      htmlElements.push(
+          <tr className="users-container" key={i}>
+            <td className="users-username">
+              {users[i].logInfo.username}
+            </td>
+            <td className="users-status">
+              {users[i].logInfo.block}
+            </td>
+          </tr>
+      );
+    }
+  } else {
+    console.log(users)
+    htmlElements.push(
+        <tr className="users-container" key={0}>
+          <td className="users-username">
+            <h5>No users found</h5>
+          </td>
+        </tr>
+    );
   }
 
   return (
@@ -115,8 +160,18 @@ function AdminDash() {
 
       <hr/>
       <h1 className="formSubheading">View User Accounts</h1>
-      <div>
-
+      <div className="table-responsive shadow">
+        <table className="table table-striped ">
+          <thead className="thead-dark prevent-select">
+          <tr>
+            <th scope="col" className="border border-right-1">Username</th>
+            <th scope="col" className="border border-right-1">Blocked</th>
+          </tr>
+          </thead>
+          <tbody>
+          {htmlElements}
+          </tbody>
+        </table>
       </div>
     </div>
   )

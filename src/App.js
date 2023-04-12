@@ -128,11 +128,11 @@ export function App() {
       }
     },
     {
-      label: "Annual Leave",
+      label: "Holiday Request",
       icon: "pi pi-calendar",
       className: "p-menuitem-active",
       command: () => {
-        window.location = "#/annual-leave";
+        window.location = "#/holiday-request";
       }
     },
     {
@@ -188,11 +188,11 @@ export function App() {
       }
     },
     {
-      label: "Annual Leave",
+      label: "Holiday Request",
       icon: "pi pi-calendar",
       className: "p-menuitem-active",
       command: () => {
-        window.location = "#/annual-leave";
+        window.location = "#/holiday-request";
       }
     },
     {
@@ -248,11 +248,11 @@ export function App() {
       }
     },
     {
-      label: "Annual Leave",
+      label: "Holiday Request",
       icon: "pi pi-calendar",
       className: "p-menuitem-active",
       command: () => {
-        window.location = "#/annual-leave";
+        window.location = "#/holiday-request";
       }
     },
     {
@@ -300,11 +300,11 @@ export function App() {
       }
     },
     {
-      label: "Annual Leave",
+      label: "Holiday Request",
       icon: "pi pi-calendar",
       className: "p-menuitem-active",
       command: () => {
-        window.location = "#/annual-leave";
+        window.location = "#/holiday-request";
       }
     },
     {
@@ -365,7 +365,7 @@ export function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/Profile" component={Profile} />
-              <Route path="/annual-leave" component={HolidayRequest} />
+              <Route path="/holiday-request" component={HolidayRequest} />
               <Route path="/UploadDocument" component={UploadDocument} />
               <Route path="/support" component={Support} />
               <Route path="/SupportITForm" component={SupportITForm} />
