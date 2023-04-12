@@ -31,21 +31,21 @@ function HolidayRequest() {
   if (requestLeave) {
     return (
       <div>
-        <button onClick={() => setRequestLeave(false)}> {"<"} Back</button>
+        <button className="rounded-3 border-1 prevent-select" onClick={() => setRequestLeave(false)}> {"<"} Back</button>
         <RequestLeave remaining={remaining} />
       </div>
     );
   } else if (viewBookings) {
     return (
       <div>
-        <button onClick={() => setViewBookings(false)}> {"<"} Back</button>
+        <button className="rounded-3 border-1 prevent-select" onClick={() => setViewBookings(false)}> {"<"} Back</button>
         <ViewBookings />
       </div>
     );
   } else if (viewRequest) {
     return (
       <div>
-        <button onClick={() => setViewRequest(false)}> {"<"} Back</button>
+        <button className="rounded-3 border-1 prevent-select" onClick={() => setViewRequest(false)}> {"<"} Back</button>
         <ViewRequests />
       </div>
     );

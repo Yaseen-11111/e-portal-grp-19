@@ -76,7 +76,7 @@ function ViewBookings() {
             const rejected = heading === "rejected"
             return (array.map((element,index)=>{
                 return (
-                    <div key={index} className={`border border-3 border-secondary p-3 mt-2 ${bg}`}>
+                    <div key={index} className={`p-3 mt-2 rounded-3 shadow opacity-80 ${bg}`}>
                         <h3 className='row p-1 text-decoration-underline'>{element[0]}</h3>
                         <h6 className='p-1 row'>Reason for leave: {element[1]}</h6>
                         {rejected?<h6 className='p-1 row'>Reason for rejection: {element[2]}</h6>:null}
@@ -99,7 +99,7 @@ function ViewBookings() {
     }
     return (
         <div>
-            <h2 className="d-flex justify-content-center p-2">Annual Leave bookings</h2>
+            <h2 className="d-flex justify-content-center p-2 prevent-select">Annual Leave bookings</h2>
             {createHeading("In Progress Leaves")}
             {
                 showData(leavesInProgess,"inProgress")
