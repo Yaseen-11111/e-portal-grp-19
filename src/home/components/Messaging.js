@@ -72,7 +72,7 @@ function MessagingDash() {
         <div className="p-divider-top prevent-select">
             <h1 className="formSubheading">Send Message</h1>
             <form onSubmit={(e)=>{e.preventDefault()}}>
-                <input className="rounded-4" onChange={(e) =>setNotificationUser(e.target.value)} type="text" name="username" placeholder="username" required/>
+                <input id="usernameID" className="rounded-4" onChange={(e) =>setNotificationUser(e.target.value)} type="text" name="username" placeholder="username" required/>
                 <input className="rounded-4" onChange={(e) =>setNotificationMessage(e.target.value)} type="text" name="message" placeholder="message" required/>
                 <button className="rounded-4" type="submit" onClick={()=>{sendNotification(notificationUser, notificationMessage)}}>Send Notification</button>
             </form>
