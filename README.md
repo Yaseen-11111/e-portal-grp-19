@@ -8,8 +8,7 @@ The prototype was developed using React JS and a Mongo DB backend.
 
 ### Log in page
 
-<img src="C:\Users\yasee\Downloads\FDM-Employee-Portal-main\FDM-Employee-Portal-main\img_1.png">
-
+![image](https://user-images.githubusercontent.com/56612823/231566196-46dc5418-c79d-4454-9ce1-ecf66d8d7ea0.png)
 This is the login page, which lets you enter your login credentials
 
 e.g Username (yaseen), Password (test)
