@@ -42,7 +42,7 @@ const blockUserEndpoint = (app) => {
     //get access token from header
     const token = req.headers["x-access-token"];
     //validate token
-    if (!Registry.getInstance().getUsers().has(token) || Registry.getInstance().getUser(token).getPriority() < RolePrio["IT_SUPPORT"]) {
+    if (!Registry.getInstance().getUsers().has(token) || Registry.getInstance().getUser(token).getRank() < RolePrio["IT_SUPPORT"]) {
       return res.status(401).send({
         status: "error",
         message: "Not Authorized"
@@ -175,7 +175,7 @@ const setLeaveEndpoint = (app) => {
     const token = req.headers["x-access-token"];
     const { id, decision, reason } = req.body;
     //validate token
-    if (!Registry.getInstance().getUsers().has(token) || Registry.getInstance().getUser(token).getPriority() < RolePrio["IT_SUPPORT"]) {
+    if (!Registry.getInstance().getUsers().has(token) || Registry.getInstance().getUser(token).getRank() < RolePrio["IT_SUPPORT"]) {
       return res.status(401).send({
         status: "error",
         message: "Not Authorized"
@@ -898,7 +898,7 @@ const editableEndpoint = (app) => {
       await client.connect();
       const db = client.db(mongo.dbName);
       const collection = db.collection("modify-profile");
-      const rolePrio = Registry.getInstance().getUser(token).getPriority();
+      const rolePrio = Registry.getInstance().getUser(token).getRank();
       const editableFields = await collection.findOne({
         "priority.min": { $lte: rolePrio },
         "priority.max": { $gte: rolePrio }
@@ -1017,9 +1017,9 @@ const signupEndpoint = (app) => {
   app.post("/api/signup", async (req, res) => {
     const { username, password, email, firstName, lastName, mobile, role, token } = req.body;
     //convert role string to RolePrio enum
-    const priority = RolePrio[role];
+    const rank = RolePrio[role];
 
-    if (!Registry.getInstance().getUsers().has(token) || Registry.getInstance().getUser(token).getPriority < RolePrio["IT_SUPPORT"]) {
+    if (!Registry.getInstance().getUsers().has(token) || Registry.getInstance().getUser(token).getRank < RolePrio["IT_SUPPORT"]) {
       res.status(401).send({
         status: "fail",
         message: "Not authorized"
@@ -1051,7 +1051,7 @@ const signupEndpoint = (app) => {
         },
         workInfo: {
           role: role,
-          rank: priority,
+          rank: rank,
           holidayBalance: 30
         },
         personalInfo: {
@@ -1113,7 +1113,7 @@ const loginEndpoint = (app) => {
       const hash = crypto.createHash('sha256').update(password).digest('base64');
 
       if (user && user.logInfo.password === hash && user.logInfo.block === "false") {
-        var token = jwt.sign({
+        const token = jwt.sign({
           username: user.logInfo.username
         }, config.secret, {
           expiresIn: "24h"
@@ -1125,7 +1125,7 @@ const loginEndpoint = (app) => {
             user.personalInfo.firstName,
             user.personalInfo.lastName,
             user.workInfo.role,
-            user.workInfo.priority,
+            user.workInfo.rank,
             user.personalInfo.mobileNo
         ));
 

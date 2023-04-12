@@ -38,7 +38,7 @@ export function App() {
 
   //login states
   const [loggedIn, setLoggedIn] = useState(null);
-  const [setNotifications] = useState([]);
+  const [notifications, setNotifications] = useState([]);
 
   const { token, setToken } = useToken();
 

@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from "react";
-import "../styles/home.css"
+import "../styles/home.css";
+
 function MessagingDash() {
+    const [notificationUser, setNotificationUser] = useState();
+    const [notificationMessage, setNotificationMessage] = useState();
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -10,6 +13,22 @@ function MessagingDash() {
             }
         });
     }, []);
+
+    const sendNotification = async (username, message) =>{
+        const response = await fetch('http://localhost:5000/api/notification/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "x-access-token": localStorage.getItem("token"),
+            },
+            body: JSON.stringify({
+                username,
+                message,
+            })
+        });
+        const body = await response.json();
+        alert(body.message);
+    }
     const getUsersFromDB = async () => {
         const response = await fetch('http://localhost:5000/api/listusers', {
             method: 'POST',
@@ -53,14 +72,14 @@ function MessagingDash() {
         <div className="p-divider-top prevent-select">
             <h1 className="formSubheading">Send Message</h1>
             <form onSubmit={(e)=>{e.preventDefault()}}>
-                <input className="rounded-4"  type="text" name="username" placeholder="username" required/>
-                <input className="rounded-4"  type="text" name="message" placeholder="message" required/>
-                <button className="rounded-4" type="submit">Send Notification</button>
+                <input className="rounded-4" onChange={(e) =>setNotificationUser(e.target.value)} type="text" name="username" placeholder="username" required/>
+                <input className="rounded-4" onChange={(e) =>setNotificationMessage(e.target.value)} type="text" name="message" placeholder="message" required/>
+                <button className="rounded-4" type="submit" onClick={(e)=>{sendNotification(notificationUser, notificationMessage)}}>Send Notification</button>
             </form>
             <h1 className="formSubheading prevent-select">List of users</h1>
             <div className="table-responsive shadow rounded-4">
                 <table className="table table-striped ">
-                    <thead className="thead-dark prevent-select">
+                    <thead className="thead-dark ">
                     <tr>
                         <th scope="col" className="border border-right-1">Username</th>
                         <th scope="col" className="border border-right-1">Role</th>

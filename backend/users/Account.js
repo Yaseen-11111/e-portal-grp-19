@@ -1,10 +1,10 @@
 class Account {
-  constructor(uName, fName, lName, role, priority, mobile) {
+  constructor(uName, fName, lName, role, rank, mobile) {
     this.uName = uName;
     this.fName = fName;
     this.lName = lName;
     this.role = role;
-    this.priority = priority;
+    this.rank = rank;
     this.mobileNo = mobile;
   }
 
@@ -28,8 +28,8 @@ class Account {
     return this.role;
   }
 
-  getPriority() {
-    return this.priority;
+  getRank() {
+    return this.rank;
   }
 
   getMobile() {
@@ -48,8 +48,8 @@ class Account {
     this.role = role;
   }
 
-  setPriority(priority) {
-    this.priority = priority;
+  setRank(rank) {
+    this.rank = rank;
   }
 
   setMobile(mobile) {
@@ -57,7 +57,7 @@ class Account {
   }
 
   toString() {
-    return `${this.fName} ${this.lName} ${this.role} ${this.priority} ${this.mobile}`;
+    return `${this.fName} ${this.lName} ${this.role} ${this.rank} ${this.mobile}`;
   }
 
   getAge() {

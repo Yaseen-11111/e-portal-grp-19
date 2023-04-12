@@ -14,7 +14,7 @@ function AdminDash() {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
-  const [role, setRole] = useState("MANAGER");
+  const [role, setRole] = useState("ADMIN");
 
   const [users, setUsers] = useState([]);
 
