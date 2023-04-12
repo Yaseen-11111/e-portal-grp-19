@@ -2,8 +2,8 @@ import {Button} from "react-bootstrap";
 import App from "./App";
 
 
+export function LogOutOp(toast) {
 
-export function logOutOp(toast) {
     toast.current.clear();
     toast.current.show({
         severity: "warn", closeable: true, sticky: true, content: (
@@ -18,8 +18,8 @@ export function logOutOp(toast) {
                         <Button onClick={() => {
                             localStorage.removeItem("token");
                             localStorage.removeItem("user");
-                            App.setLoggedIn(null);
                             window.location = "#/";
+                            window.location.reload();
                         }} type="button" label="Yes" className="p-button-raised p-button-success">
                             Yes
                         </Button>

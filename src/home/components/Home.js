@@ -109,7 +109,7 @@ function Home() {
                         <Card.Text>
                         Submit a request to take days off using your annual leave. Requests will be sent for approval.
                         </Card.Text>
-                        <Button variant="primary" onClick={() => {window.location = "#annualleave"}}>Request Leave</Button>
+                        <Button variant="primary" onClick={() => {window.location = "#annual-leave"}}>Request Leave</Button>
                     </Card.Body>
                 </Card>
                 </Col>

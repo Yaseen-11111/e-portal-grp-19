@@ -28,9 +28,10 @@ import AdminDash from "./home/components/AdminDash";
 import useToken from "./login/useToken";
 import {Image} from "react-bootstrap";
 import Notifications from "./home/components/Notifications";
-import {logOutOp} from "./LogOut";
+import {LogOutOp} from "./LogOut";
 
-function App() {
+
+export function App() {
 
   const [visibleCustomToolbar, setVisibleCustomToolbar] = useState(true);
 
@@ -162,7 +163,7 @@ function App() {
       label: "Logout",
       icon: "pi pi-power-off",
       command: async () => {
-        await logOutOp(toast)
+        await LogOutOp(toast)
       }
     }
   ];
@@ -222,7 +223,7 @@ function App() {
       label: "Logout",
       icon: "pi pi-power-off",
       command: async () => {
-        await logOutOp(toast)
+        await LogOutOp(toast)
       }
     }
   ];
@@ -274,7 +275,7 @@ function App() {
       label: "Logout",
       icon: "pi pi-power-off",
       command: async () => {
-        await logOutOp(toast)
+        await LogOutOp(toast)
       }
     }
   ];
@@ -326,7 +327,7 @@ function App() {
       label: "Logout",
       icon: "pi pi-power-off",
       command: async () => {
-        await logOutOp(toast)
+        await LogOutOp(toast)
       }
     }
   ];
