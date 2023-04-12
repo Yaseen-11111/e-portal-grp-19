@@ -20,7 +20,7 @@ import CurrentTickets from "./support/components/CurrentTickets";
 import TicketArchive from "./support/components/TicketArchive";
 import Home from "./home/components/Home";
 import Profile from "./profile/components/Profile";
-import AnnualLeave from "./leave/AnnualLeave";
+import HolidayRequest from "./leave/HolidayRequest";
 import Login from "./login/Login";
 import Support from "./support/components/Support";
 import {Button} from "primereact/button";
@@ -365,7 +365,7 @@ export function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/Profile" component={Profile} />
-              <Route path="/annual-leave" component={AnnualLeave} />
+              <Route path="/annual-leave" component={HolidayRequest} />
               <Route path="/UploadDocument" component={UploadDocument} />
               <Route path="/support" component={Support} />
               <Route path="/SupportITForm" component={SupportITForm} />

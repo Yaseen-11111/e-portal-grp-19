@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 
-import avatar from '../assets/avatar.png'
 import { Button } from "primereact/button";
 import { Toast } from 'primereact/toast';
 import PropTypes from "prop-types";
@@ -54,11 +53,11 @@ function Login({ setToken, setLoggedIn }) {
   }
 
   return (
-    <div className="login-container">
+    <div className="login-container prevent-select">
       <Toast ref={toast} />
       <form id="loginForm" onSubmit={(e)=>{loginUser(e)}}>
         <div className="avatar-container">
-          <img src={logo} className="avatar-image prevent-select" alt="fdm-logo" />
+          <img src={logo} className="avatar-image " alt="fdm-logo" />
         </div>
 
         <label htmlFor="uname">
@@ -77,7 +76,7 @@ function Login({ setToken, setLoggedIn }) {
           <input onChange={(e) =>setRemember(e.target.value)} type="checkbox" defaultChecked="checked"/> Remember me
         </label>
         <br/>
-        <a href="#" style={{color: "white", textDecoration: "underline"}}>Forgot password?</a>
+        <a href="#" style={{color: "black", textDecoration: "underline"}}>Forgot password?</a>
       </form>
     </div>
   )

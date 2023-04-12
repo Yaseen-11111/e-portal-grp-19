@@ -4,15 +4,15 @@ import Carousel from 'react-bootstrap/Carousel'
 import "../styles/home.css"
 
 
-import carousel1 from './homeAssets/carousel1.jpg'
-import carousel2 from './homeAssets/carousel2.jpg'
-import carousel3 from './homeAssets/carousel3.jpg'
-import carousel4 from './homeAssets/carousel4.jpg'
-import carousel5 from './homeAssets/carousel5.jpg'
-import profilecard from './homeAssets/profilecard.png'
-import leavecard from './homeAssets/holidaycard.png'
-import helpcard from './homeAssets/supportcard.png'
-import messagecard from './homeAssets/messagecard.png'
+import carousel1 from '././homeImages/carousel1.jpg'
+import carousel2 from '././homeImages/carousel2.jpg'
+import carousel3 from '././homeImages/carousel3.jpg'
+import carousel4 from '././homeImages/carousel4.jpg'
+import carousel5 from '././homeImages/carousel5.jpg'
+import profilecard from '././homeImages/profilecard.png'
+import leavecard from '././homeImages/holidaycard.png'
+import helpcard from '././homeImages/supportcard.png'
+import messagecard from '././homeImages/messagecard.png'
 
 function Home() {
 

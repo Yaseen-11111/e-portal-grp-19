@@ -1,9 +1,7 @@
-const Registry = require("./users/Registry");
+const Registry = require("./users/Register");
 const Account = require("./users/Account");
 
 const { MongoClient } = require("mongodb");
-const express = require("express");
-const cors = require("cors");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const config = require("./config/auth.config");
@@ -12,11 +10,11 @@ const mongo = require("./config/mongo.config");
 const RolePrio = JSON.parse("{\"ADMIN\": 20,\"MANAGER\": 15, \"IT_SUPPORT\": 10, \"HR_STAFF\": 5, \"EMPLOYEE\": 0}");
 
 function getPrefix(num) {
-  if ((num > 3 && num < 21) | (num > 23 && num < 31)) {
+  if ((num > 3 && num < 21) || (num > 23 && num < 31)) {
     return num + "th";
-  } else if (num === 21 | num === 1 | num === 31) {
+  } else if (num === 21 | num === 1 || num === 31) {
     return num + "st";
-  } else if (num === 22 | num === 2) {
+  } else if (num === 22 || num === 2) {
     return num + "nd";
   } else {
     return num + "rd";
@@ -83,6 +81,8 @@ const blockUserEndpoint = (app) => {
   });
 };
 
+
+
 const setLeaveEndpoint = (app) => {
   app.post("/api/leave/request/decide", async (req, res) => {
     //get access token from header
@@ -94,7 +94,6 @@ const setLeaveEndpoint = (app) => {
         status: "error",
         message: "Not Authorized"
       });
-      return;
     }
 
     //save request to database
@@ -171,7 +170,6 @@ const inProgressLeavesEndpoint = (app) => {
         status: "error",
         message: "Not Authorized"
       });
-      return;
     }
     //get user from token
     const user = Registry.getInstance().getUsers().get(token);
@@ -291,8 +289,7 @@ const pastLeavesEndpoint = (app) => {
       //prevent concurrent edits while iterating
       const filtered = result.filter(function(leave) {
         const end = new Date(leave.endDate);
-        const isInPast = (end.getTime() < Date.now());
-        return isInPast;
+        return (end.getTime() < Date.now());
       });
       //construct new array with only past leaves formatted for frontend
       let leaveData = [];
@@ -552,7 +549,6 @@ const accTypeEndpoint = (app) => {
         status: "error",
         message: "Not Authorized"
       });
-      return;
     }
 
     const client = new MongoClient(mongo.url);
@@ -593,7 +589,6 @@ const notificationEndpoint = (app) => {
         status: "error",
         message: "Not Authorized"
       });
-      return;
     }
 
     const client = new MongoClient(mongo.url);

@@ -4,7 +4,7 @@ class Account {
     this.fName = fName;
     this.lName = lName;
     this.role = role;
-    this.rank = priority;
+    this.priority = priority;
     this.mobileNo = mobile;
   }
 

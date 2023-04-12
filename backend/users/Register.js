@@ -1,14 +1,14 @@
 //singleton class that stores users
-class Registry {
+class Register {
     constructor(){
         this.users = new Map();
     }
 
     static getInstance(){
-        if(!Registry.instance){
-            Registry.instance = new Registry();
+        if(!Register.instance){
+            Register.instance = new Register();
         }
-        return Registry.instance;
+        return Register.instance;
     }
 
     addUser(token, user){
@@ -29,4 +29,4 @@ class Registry {
     }
 }
 
-module.exports = Registry;
+module.exports = Register;

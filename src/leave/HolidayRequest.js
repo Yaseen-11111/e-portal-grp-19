@@ -3,7 +3,7 @@ import RequestLeave from "./RequestLeave";
 import ViewRequests from "./ViewRequests";
 import ViewBookings from "./ViewBookings";
 
-function AnnualLeave() {
+function HolidayRequest() {
   const [remaining, setRemaining] = useState(28);
   const [requestLeave, setRequestLeave] = useState(false);
   const [viewBookings, setViewBookings] = useState(false);
@@ -72,7 +72,7 @@ function AnnualLeave() {
 
   return (
       <div className=' w-50 m-auto'>
-        <h1 className='d-flex justify-content-center prevent-select'>Annual Leave</h1>
+        <h1 className='d-flex justify-content-center prevent-select'>Holiday Request</h1>
         <div className="bg-white border border-2 border-secondary mt-5 rounded-4 prevent-select">
             <h3 className='m-4 d-flex justify-content-center'>Number of days remaining: {remaining}</h3>
             <div className=''>
@@ -85,4 +85,4 @@ function AnnualLeave() {
   );
 }
 
-export default AnnualLeave;
+export default HolidayRequest;

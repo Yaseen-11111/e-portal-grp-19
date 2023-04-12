@@ -72,6 +72,10 @@ function AdminDash() {
     alert(body.message);
   }
 
+  const getUsers = async () => {
+    const response = await fetch('http://localhost:5000/api/getuseradmin')
+  }
+
   return (
     <div className="p-divider-top">
       <h1 className="formSubheading">Create a New User Account</h1>
@@ -108,6 +112,12 @@ function AdminDash() {
         <input onChange={(e) =>setBlockUser(e.target.value)} type="text" name="username" placeholder="username" required/>
         <button type="submit" onClick={(e)=>{blockUserAccount(blockUser)}}>Block User Account</button>
       </form>
+
+      <hr/>
+      <h1 className="formSubheading">View User Accounts</h1>
+      <div>
+
+      </div>
     </div>
   )
 }

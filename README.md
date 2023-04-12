@@ -6,7 +6,15 @@ This includes a login system with different access levels based on the account t
 Features included a login system with a hierarchy and features based on the types of users, including a support ticket system and the ability to submit annual leave requests. 
 The prototype was developed using React JS and a Mongo DB backend.
 
-#### Main Home Page
+### Log in page
+
+<img src="C:\Users\yasee\Downloads\FDM-Employee-Portal-main\FDM-Employee-Portal-main\img_1.png">
+
+This is the login page, which lets you enter your login credentials
+
+e.g Username (yaseen), Password (test)
+
+### Main Dashboard Home Page
 
 <img src="C:\Users\yasee\Downloads\FDM-Employee-Portal-main\FDM-Employee-Portal-main\img.png" />
 
