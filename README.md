@@ -56,6 +56,7 @@ View current tickets open.
     (01) - Install Node and Yarn
     (02) - Open CMD in the employee portal directory
     (03) - Install libraries using the command "npm install"
+    (04) - Install yarn "npm install -g yarn"
     (04) - Type "cd backend" and enter the command "node api.js"
     (05) - Open a new terminal at the file directory
     (06) - Enter the command "yarn start" and visit the URL specified
