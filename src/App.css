@@ -1,0 +1,60 @@
+.e-logo {
+    border-radius: 10px;
+}
+
+.p-menu {
+  background-color: #b44f4f !important;
+}
+
+.p-menu-list {
+  font-size: 12pt !important;
+}
+
+.p-menuitem-icon{
+    color: #000000 !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    border-radius: 5px;
+}
+
+body .p-sidebar .p-sidebar-content {
+    padding: 0;
+}
+body .p-sidebar .p-sidebar-header {
+    display:none;
+}
+
+body .p-sidebar {
+    border: 0;
+}
+
+.p-menuitem-text{
+  color:#FFFFFF !important;
+}
+
+.p-menuitem-link {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+
+}
+
+.p-menu .p-menuitem .p-menuitem-link:hover{
+  background-color: #131316;
+}
+
+.p-menuitem.logout span{
+  color: rgb(255,85,106) !important;
+}
+
+body .p-sidebar {
+  background-color: #1b1d2e !important;
+  border: 0 !important;
+}
+
+body .p-menu {
+  border: 0 !important;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}

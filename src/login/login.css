@@ -1,0 +1,51 @@
+input[type=text], input[type=password], input[type=email], input[type=tel] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.loginbutton {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.loginbutton:hover {
+    opacity: 0.8;
+}
+
+.avatar-container {
+    text-align: center;
+    margin: 15px 0 10px 0;
+}
+
+.avatar-image {
+    width: 50%;
+    border-radius: 1em;
+}
+
+.login-container{
+    width: 600px;
+    height: fit-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -300px;
+    padding: 16px;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}

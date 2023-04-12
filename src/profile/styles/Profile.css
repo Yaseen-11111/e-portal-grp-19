@@ -1,0 +1,79 @@
+
+
+.labelAlign {
+    border:1px solid black;
+    margin-top: 1.3em;
+    margin-left: 1em;
+    margin-right: -0.6em;
+}
+
+.subheading {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.field::placeholder{
+    opacity: 0.8;
+    color: black;
+}
+
+.upperSpacing {
+    margin-top: 1em;
+
+}
+
+.smallsubHeading {
+    font-size: 1em;
+    font-weight: normal;
+
+}
+
+.addressContainer {
+    border: 1px solid black;
+
+}
+
+.dateShift {
+    margin-top: 0.6em;
+}
+
+.profileContainer {
+    margin-top: 1em;
+    height: 85vh;
+    overflow: scroll;
+    overflow-x:hidden;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px black;
+}
+
+.profileContainer::-webkit-scrollbar {
+    border-radius: 5px;
+    width: 0;
+}
+
+.mainTitle {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.detailType {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.contentType {
+    font-size: 1.3em;
+}
+
+.checkbox[readonly]{
+    pointer-events: none;
+    color: red;
+}
+
+
+.editButton {
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
