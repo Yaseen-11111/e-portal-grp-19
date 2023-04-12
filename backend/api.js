@@ -772,7 +772,52 @@ const sendNotificationEndpoint = (app) => {
       } else {
         res.send({
           status: "error",
-          message: "notification not sent"
+          message: "notification not sent, username or message missing"
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      await client.close();
+    }
+  });
+};
+
+const sendNotificationGroupEndpoint = (app) => {
+  app.post("/api/notification/send/all", async (req, res) => {
+    //get access token from header
+    const token = req.headers["x-access-token"];
+    const { username, message } = req.body;
+    //validate token
+    if (!Registry.getInstance().getUsers().has(token)) {
+      return res.status(401).send({
+        status: "error",
+        message: "Not Authorized"
+      });
+    }
+
+    const client = new MongoClient(mongo.url);
+    try {
+      await client.connect();
+      const db = client.db(mongo.dbName);
+      const collection = db.collection("users");
+      const result = await collection.updateMany({
+      }
+      , {
+        $push: {
+          notifications: message
+        }
+      });
+
+      if (result.modifiedCount > 0) {
+        res.send({
+          status: "success",
+          message: "notification sent"
+        });
+      } else {
+        res.send({
+          status: "error",
+          message: "notification not sent, message missing"
         });
       }
     } catch (err) {
@@ -1187,6 +1232,7 @@ async function run() {
   blockUserEndpoint(app);
   listUserAdminEndpoint(app);
   listUserEndpoint(app);
+  sendNotificationGroupEndpoint(app);
 
   app.listen(5000);
 }

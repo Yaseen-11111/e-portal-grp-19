@@ -11,7 +11,7 @@ function HolidayRequest() {
   const [manager, setManager] = useState(false);
 
   useEffect(() => {
-    const getRemaining = async () => {
+    const getBalanceRemaining = async () => {
       await fetch("http://localhost:5000/api/leave/remaining", {
         method: "GET",
         headers: {
@@ -25,7 +25,7 @@ function HolidayRequest() {
         });
     }
 
-    getRemaining();
+    getBalanceRemaining();
   }, []);
 
   if (requestLeave) {
@@ -51,7 +51,7 @@ function HolidayRequest() {
     );
   }
 
-  const getAccType = async () => {
+  const getAccountType = async () => {
     const response = await fetch("http://localhost:5000/api/account-type", {
       method: "GET",
       headers: {
@@ -62,7 +62,7 @@ function HolidayRequest() {
       return await response.json();
   };
 
-  getAccType().then(data => {
+  getAccountType().then(data => {
     if (data.accountType === "admin") {
       setManager(true);
     } else {

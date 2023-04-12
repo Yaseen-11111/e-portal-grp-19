@@ -37,9 +37,9 @@ function Support() {
                         <div className="card-body">
                             <h4 className="card-header">Who would you like to contact?</h4><br></br>
                             <a href="#/SupportITForm">
-                            <button type="button" className="btn btn-primary">IT Support</button></a>
+                            <button type="button" className="btn btn-danger">IT Support</button></a>
                             <a href="#/SupportHRForm">
-                            <button type="button" className="btn btn-primary">Human Resources</button></a>
+                            <button type="button" className="btn btn-danger">Human Resources</button></a>
                         </div>
                     </div>
                 </div>
@@ -49,9 +49,9 @@ function Support() {
                             <h4 className="card-header">Already submitted a ticket?</h4>
                             <br></br>
                             <a href="#/CurrentTickets">
-                            <button type="button" className="btn btn-primary">View Current Tickets</button></a>
+                            <button type="button" className="btn btn-danger">View Current Tickets</button></a>
                             <a href="#/TicketArchive">
-                            <button type="button" className="btn btn-primary">View Closed Tickets</button></a>
+                            <button type="button" className="btn btn-danger">View Closed Tickets</button></a>
                         </div>
                     </div>
                 </div>

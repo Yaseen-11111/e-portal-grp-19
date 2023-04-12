@@ -67,6 +67,22 @@ function AdminDash() {
     alert(body.message);
   }
 
+  const sendNotificationAll = async (username, message) =>{
+    const response = await fetch('http://localhost:5000/api/notification/send/all', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        "x-access-token": localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        username,
+        message,
+      })
+    });
+    const body = await response.json();
+    alert(body.message);
+  }
+
   const blockUserAccount = async (username) =>{
     const response = await fetch('http://localhost:5000/api/blockuser', {
       method: 'POST',
@@ -150,10 +166,10 @@ function AdminDash() {
       <hr/>
       <h1 className="formSubheading">Send Notification</h1>
       <form onSubmit={(e)=>{e.preventDefault()}}>
-        <input className="rounded-4" onChange={(e) =>setNotificationUser(e.target.value)} type="text" name="username" placeholder="username" required/>
+        <input className="rounded-4" onChange={(e) =>setNotificationUser(e.target.value)} type="text" name="username" placeholder="username"/>
         <input className="rounded-4" onChange={(e) =>setNotificationMessage(e.target.value)} type="text" name="message" placeholder="message" required/>
         <button className="rounded-4" type="submit" onClick={()=>{sendNotification(notificationUser, notificationMessage)}}>Send Notification</button>
-        <button className="rounded-4" type="submit" onClick={()=>{sendNotification(notificationUser, notificationMessage)}}>Send Notification to All</button>
+        <button className="rounded-4" type="submit" onClick={()=>{sendNotificationAll(notificationUser, notificationMessage)}}>Send Notification to All</button>
 
       </form>
       <hr/>
