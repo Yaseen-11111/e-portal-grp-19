@@ -138,7 +138,7 @@ function Home() {
                             <Card.Text>
                                 Send notifications to other colleagues
                             </Card.Text>
-                            <Button variant="primary" onClick={() => {window.location = "#profile"}}>Send Notifications</Button>
+                            <Button variant="primary" onClick={() => {window.location = "#messaging"}}>Send Notifications</Button>
                         </Card.Body>
                     </Card>
                 </Col>

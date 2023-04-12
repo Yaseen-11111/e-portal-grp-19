@@ -29,6 +29,7 @@ import useToken from "./login/useToken";
 import {Image} from "react-bootstrap";
 import Notifications from "./home/components/Notifications";
 import {LogOutOp} from "./LogOut";
+import MessagingDash from "./home/components/Messaging";
 
 
 export function App() {
@@ -372,6 +373,7 @@ export function App() {
               <Route path="/SupportHRForm" component={SupportHRForm} />
               <Route path="/CurrentTickets" component={CurrentTickets} />
               <Route path="/TicketArchive" component={TicketArchive} />
+              <Route path="/Messaging" component={MessagingDash} />
               <Route path="/Notifications">
                 <Notifications update={updateMenuNotify} />
               </Route>

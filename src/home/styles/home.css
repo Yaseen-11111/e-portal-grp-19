@@ -19,3 +19,13 @@
     width: 0;
 }
 
+.
+
+.users-container:hover {
+    opacity: 0.8;
+    box-shadow: 5px 5px 5px black;
+}
+
+.carousel-inner {
+    border-radius: 5px;
+}

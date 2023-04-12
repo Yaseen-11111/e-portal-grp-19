@@ -81,9 +81,9 @@ const blockUserEndpoint = (app) => {
   });
 };
 
-const getUserAdminEndpoint = (app) => {
-  app.post("/api/getuseradmin", async (req, res) => {
-    const { token } = req.body;
+const listUserAdminEndpoint = (app) => {
+  app.post("/api/admin/listusers", async (req, res) => {
+    const {token} = req.body;
 
     //validate token
     if (!Registry.getInstance().getUsers().has(token)) {
@@ -99,8 +99,11 @@ const getUserAdminEndpoint = (app) => {
       const db = client.db(mongo.dbName);
       const collection = db.collection("users");
       let users;
-      users = await collection.find({
-      }).project({'logInfo.username': 1, 'logInfo.block': 1}).toArray()
+      users = await collection.find({}).project({
+        'logInfo.username': 1,
+        'logInfo.block': 1,
+        'workInfo.role': 1
+      }).toArray()
 
       if (users) {
         res.send({
@@ -123,7 +126,48 @@ const getUserAdminEndpoint = (app) => {
 
 
   })
-}
+};
+
+const listUserEndpoint = (app) => {
+  app.post("/api/listusers", async (req, res) => {
+    const {token} = req.body;
+
+    //validate token
+    if (!Registry.getInstance().getUsers().has(token)) {
+      return res.status(401).send({
+        status: "error",
+        message: "Not Authorized"
+      });
+    }
+
+    const client = new MongoClient(mongo.url);
+    try {
+      await client.connect();
+      const db = client.db(mongo.dbName);
+      const collection = db.collection("users");
+      let users;
+      users = await collection.find({}).project({'logInfo.username': 1, 'workInfo.role': 1}).toArray()
+
+      if (users) {
+        res.send({
+          status: "success",
+          users: users
+        });
+      } else {
+        res.send({
+          status: "error",
+          message: "no users found",
+          users: null
+
+        })
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      await client.close();
+    }
+  })
+};
 
 const setLeaveEndpoint = (app) => {
   app.post("/api/leave/request/decide", async (req, res) => {
@@ -410,9 +454,6 @@ const requestedLeavesEndpoint = (app) => {
         message: "Not Authorized"
       });
     }
-    //get user from token
-    const user = Registry.getInstance().getUsers().get(token);
-
     //save request to database
     const client = new MongoClient(mongo.url);
     try {
@@ -1144,7 +1185,8 @@ async function run() {
   getRemainingLeaveEndpoint(app);
   sendNotificationEndpoint(app);
   blockUserEndpoint(app);
-  getUserAdminEndpoint(app)
+  listUserAdminEndpoint(app);
+  listUserEndpoint(app);
 
   app.listen(5000);
 }
