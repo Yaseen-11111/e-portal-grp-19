@@ -672,7 +672,6 @@ const sendNotificationEndpoint = (app) => {
         status: "error",
         message: "Not Authorized"
       });
-      return;
     }
 
     const client = new MongoClient(mongo.url);

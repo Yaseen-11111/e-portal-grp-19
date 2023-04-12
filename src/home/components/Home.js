@@ -12,6 +12,7 @@ import carousel5 from './homeAssets/carousel5.jpg'
 import profilecard from './homeAssets/profilecard.png'
 import leavecard from './homeAssets/holidaycard.png'
 import helpcard from './homeAssets/supportcard.png'
+import messagecard from './homeAssets/messagecard.png'
 
 function Home() {
 
@@ -127,6 +128,21 @@ function Home() {
                 </Col>
                 <Col className="twitterTimeline upperSpacing shadow" id="TwitterFeed" ></Col>
         </Row>
+
+            <Row className="upperSpacing marginAlign">
+                <Col className="upperSpacing prevent-select">
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={messagecard}  />
+                        <Card.Body className="shadow">
+                            <Card.Title>Send Notification</Card.Title>
+                            <Card.Text>
+                                Send notifications to other colleagues
+                            </Card.Text>
+                            <Button variant="primary" onClick={() => {window.location = "#profile"}}>Send Notifications</Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
         </Container>
     )
 }

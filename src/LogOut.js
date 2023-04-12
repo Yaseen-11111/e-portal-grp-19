@@ -1,7 +1,4 @@
 import {Button} from "react-bootstrap";
-import App from "./App";
-
-
 export function LogOutOp(toast) {
 
     toast.current.clear();
