@@ -152,15 +152,15 @@ function AdminDash() {
       <form onSubmit={(e)=>{e.preventDefault()}}>
         <input className="rounded-4" onChange={(e) =>setNotificationUser(e.target.value)} type="text" name="username" placeholder="username" required/>
         <input className="rounded-4" onChange={(e) =>setNotificationMessage(e.target.value)} type="text" name="message" placeholder="message" required/>
-        <button className="rounded-4" type="submit" onClick={(e)=>{sendNotification(notificationUser, notificationMessage)}}>Send Notification</button>
-        <button className="rounded-4" type="submit" onClick={(e)=>{sendNotification(notificationUser, notificationMessage)}}>Send Notification to All</button>
+        <button className="rounded-4" type="submit" onClick={()=>{sendNotification(notificationUser, notificationMessage)}}>Send Notification</button>
+        <button className="rounded-4" type="submit" onClick={()=>{sendNotification(notificationUser, notificationMessage)}}>Send Notification to All</button>
 
       </form>
       <hr/>
       <h1 className="formSubheading">Block User Account</h1>
       <form onSubmit={(e)=>{e.preventDefault()}}>
         <input className="rounded-4" onChange={(e) =>setBlockUser(e.target.value)} type="text" name="username" placeholder="username" required/>
-        <button className="rounded-4"type="submit" onClick={(e)=>{blockUserAccount(blockUser)}}>Block User Account</button>
+        <button className="rounded-4" type="submit" onClick={()=>{blockUserAccount(blockUser)}}>Block User Account</button>
       </form>
 
       <hr/>

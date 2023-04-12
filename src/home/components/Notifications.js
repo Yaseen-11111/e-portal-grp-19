@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "primereact/button";
-import { Table } from "react-bootstrap";
-
 function Notifications({ update }) {
 
   const [notificationsList, setNotificationsList] = useState([]);

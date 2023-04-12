@@ -74,7 +74,7 @@ function MessagingDash() {
             <form onSubmit={(e)=>{e.preventDefault()}}>
                 <input className="rounded-4" onChange={(e) =>setNotificationUser(e.target.value)} type="text" name="username" placeholder="username" required/>
                 <input className="rounded-4" onChange={(e) =>setNotificationMessage(e.target.value)} type="text" name="message" placeholder="message" required/>
-                <button className="rounded-4" type="submit" onClick={(e)=>{sendNotification(notificationUser, notificationMessage)}}>Send Notification</button>
+                <button className="rounded-4" type="submit" onClick={()=>{sendNotification(notificationUser, notificationMessage)}}>Send Notification</button>
             </form>
             <h1 className="formSubheading prevent-select">List of users</h1>
             <div className="table-responsive shadow rounded-4">
